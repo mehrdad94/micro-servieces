@@ -1,9 +1,7 @@
-const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const config = require('./config/config')
 const logConstants = require('./config/logConstants')
-const realmService = require('./DBServices/realmService')
 const app = express()
 
 // parse as json
@@ -12,18 +10,24 @@ app.use(bodyParser.json({ type: 'application/*+json' }))
 // introduction to service
 app.get('/', (req, res) => res.send(logConstants.SUCCESS))
 
-// write in database
-app.post('/write', (req, res) => {
-  realmService.dbWrite(req.body)
-              .then(data => res.send(logConstants.SUCCESS))
-              .catch(err => res.send(err))
+// add item
+app.post('/itemsAdd', (req, res) => {
+
 })
 
-// query database
-app.post('/query', (req, res) => {
-  realmService.dbQuery(req.body)
-              .then(data => res.send(data))
-              .catch(err => res.send(err))
+// delete item
+app.post('/itemsDelete', (req, res) => {
+
+})
+
+// update item
+app.post('/itemsUpdate', (req, res) => {
+
+})
+
+// query item
+app.post('/itemsQuery', (req, res) => {
+
 })
 
 // listen on port
