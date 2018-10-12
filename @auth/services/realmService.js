@@ -1,4 +1,5 @@
 const Realm = require('realm')
+const constants = require('../config/constants')
 
 const dbConfigValidation = function (dbConfig) {
   if (dbConfig.constructor !== Object) return false
@@ -30,14 +31,14 @@ const dbWrite = function (payload) {
 }
 
 const dbQuery = function (payload) {
-  let { dbConfig, query} = payload
+  let { dbConfig, query } = payload
 
   if (!dbConfig || !query || !query.find) {
-    return false
+    return constants.INVALID_DATA
   }
 
   if (!dbConfigValidation(dbConfig)) {
-    return false
+    return constants.INVALID_DB_CONFIG
   }
 
   return dbOpen(dbConfig).then(function (realm) {
@@ -48,7 +49,7 @@ const dbQuery = function (payload) {
 }
 
 const dbDelete = function (payload) {
-  let { dbConfig, obj} = payload
+  let { dbConfig, obj } = payload
 
   return dbOpen(dbConfig).then(function (realm) {
     realm.write(() => {

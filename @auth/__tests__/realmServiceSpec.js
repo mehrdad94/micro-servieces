@@ -1,3 +1,4 @@
+/* global test expect */
 /*
   test cases
   dbConfigValidation
@@ -8,11 +9,11 @@
 */
 
 const path = require('path')
-const realmService = require('../DBServices/realmService')
+const realmService = require('../services/realmService')
 
 test('dbConfigValidation, config validation', function () {
   const dbConfig = {
-    schema: [],
+    schema: []
   }
   let evaluation = realmService.dbConfigValidation(dbConfig)
 
@@ -28,7 +29,7 @@ test('dbConfigValidation, config validation', function () {
   expect(evaluation).toBe(false)
 })
 
-test('dbConfigValidation, config validation', function() {
+test('dbConfigValidation, config validation', function () {
   const dbConfig = {
     schema: [],
     path: 'h'
@@ -42,7 +43,7 @@ test('write and update database', function () {
   const dbConfig = {
     schema: [{ primaryKey: 'id', name: 'Car', properties: { model: 'string', id: 'string' } }],
     schemaVersion: 0,
-    path: path.join(__dirname, '../DBs/test.realm')
+    path: path.join(__dirname, '../DB/test.realm')
   }
 
   let dataToWrite = {
@@ -76,15 +77,15 @@ test('write and update database', function () {
       throw new Error(e)
     })
   })
-  .catch((e) => {
-    throw new Error(e)
-  })
+    .catch((e) => {
+      throw new Error(e)
+    })
 })
 
 test('read and dalete in database', function () {
   const dbConfig = {
     schema: [{ primaryKey: 'id', name: 'Car', properties: { model: 'string', id: 'string' } }],
-    path: path.join(__dirname, '../DBs/test.realm')
+    path: path.join(__dirname, '../DB/test.realm')
   }
 
   realmService.dbQuery({
