@@ -1,13 +1,14 @@
 const path = require('path')
 
 module.exports = {
+  schemaVersion: 0,
   schema: [{
-    primaryKey: 'username',
+    primaryKey: 'email',
     name: 'User',
     properties: {
-      username: 'string',
-      hash: 'string',
-      salt: 'string'
+      email: 'string',
+      token: 'string',
+      verified: 'bool'
     }
   }],
   path: path.join(__dirname, '../DB/users.realm')

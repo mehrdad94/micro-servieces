@@ -1,0 +1,21 @@
+{
+  "name": "email",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest --runInBand"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "crypto": "^1.0.1",
+    "express": "^4.16.4",
+    "nodemailer": "^4.6.8",
+    "realm": "^2.18.0",
+    "request": "^2.88.0"
+  }
+}

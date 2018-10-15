@@ -59,7 +59,6 @@ function login (username, password) {
         'Content-Type': 'application/json'
       },
       form: {
-        authType: 'JWT',
         username,
         password
       },
@@ -83,7 +82,6 @@ function signup (username, password) {
         'Content-Type': 'application/json'
       },
       form: {
-        authType: 'JWT',
         username,
         password
       },

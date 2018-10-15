@@ -1,5 +1,5 @@
 {
-  "name": "authentication",
+  "name": "jwt",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "crypto": "^1.0.1",
     "express": "^4.16.3",
     "express-jwt": "^5.3.1",
